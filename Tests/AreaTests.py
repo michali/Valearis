@@ -1,5 +1,5 @@
 from Area import Area
-from unittest import TestCase
+from unittest.case import TestCase
 from Directions import direction
 
 class AreaTests_props(TestCase):
