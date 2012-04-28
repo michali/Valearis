@@ -7,6 +7,7 @@ class Area:
         self.__short_description = short_description
         self.__long_description = long_description
         self.__adjacents = {}
+        self.__items = []
 
     @property
     def name(self):
@@ -26,3 +27,7 @@ class Area:
 
     def get_adjacent(self, direction):
         return self.__adjacents[direction]
+
+    @property
+    def items(self):
+        return self.__items

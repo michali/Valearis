@@ -30,3 +30,4 @@ class DirectionTests(TestCase):
         expected_opposite_direction = get_opposite_direction(west)
 
         self.assertEqual(expected_opposite_direction, direction.East)
+
