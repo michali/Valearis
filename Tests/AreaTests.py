@@ -1,0 +1,52 @@
+from Area import Area
+from unittest import TestCase
+from Directions import direction
+
+class AreaTests_props(TestCase):
+                    
+    def test_can_name(self):
+        area = Area('an area')
+        self.assertEqual(area.name, 'an area')
+        
+    def test_can_short_description(self):
+        area = Area('', 'short desc', '')
+        self.assertEqual(area.short_description, 'short desc')
+        
+    def test_can_long_description(self):
+        area = Area('', '', 'long desc')
+        self.assertEqual(area.long_description, 'long desc')
+
+class AreaTests_set_adjacent(TestCase):
+            
+    def test_north_is_set(self):
+        main_area = Area('Main')
+        north_area = Area('North Area')
+        
+        main_area.set_adjacent(north_area, direction.North)
+
+        self.assertEqual(north_area.get_adjacent(direction.South), main_area)
+
+    def test_south_is_set(self):
+        main_area = Area('Main')
+        south_area = Area('South Area')
+
+        main_area.set_adjacent(south_area, direction.South)
+
+        self.assertEqual(south_area.get_adjacent(direction.North), main_area)
+
+    def test_east_is_set(self):
+        main_area = Area('Main')
+        east_area = Area('East Area')
+
+        main_area.set_adjacent(east_area, direction.East)
+
+        self.assertEqual(east_area.get_adjacent(direction.West), main_area)
+
+    def test_west_is_set(self):
+        main_area = Area('Main')
+        west_area = Area('West Area')
+
+        main_area.set_adjacent(west_area, direction.West)
+
+        self.assertEqual(west_area.get_adjacent(direction.East), main_area)
+
