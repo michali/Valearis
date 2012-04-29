@@ -26,40 +26,37 @@ class Area_set_get_adjacent(TestCase):
     def setUp(self):
         self.main_area = Area('Main')
 
-    def set_adjacent(self, adjacent_area, direction_of_main_area):
-        self.main_area.setAdjacent(adjacent_area, direction_of_main_area)
-
     def test_north_is_set(self):
-        self.north_area = Area('North Area')
-        self.main_area.setAdjacent(self.north_area, direction.North)
+        north_area = Area('North Area')
+        self.main_area.setAdjacent(north_area, direction.North)
 
-        self.assertEqual(self.north_area.getAdjacent(direction.South), self.main_area)
+        self.assertEqual(north_area.getAdjacent(direction.South), self.main_area)
 
     def test_south_is_set(self):
-        self.south_area = Area('South Area')
-        self.main_area.setAdjacent(self.south_area, direction.South)
+        south_area = Area('South Area')
+        self.main_area.setAdjacent(south_area, direction.South)
 
-        self.assertEqual(self.south_area.getAdjacent(direction.North), self.main_area)
+        self.assertEqual(south_area.getAdjacent(direction.North), self.main_area)
 
     def test_east_is_set(self):
-        self.east_area = Area('East Area')
-        self.main_area.setAdjacent(self.east_area, direction.East)
+        east_area = Area('East Area')
+        self.main_area.setAdjacent(east_area, direction.East)
 
-        self.assertEqual(self.east_area.getAdjacent(direction.West), self.main_area)
+        self.assertEqual(east_area.getAdjacent(direction.West), self.main_area)
 
     def test_west_is_set(self):
-        self.west_area = Area('West Area')
-        self.main_area.setAdjacent(self.west_area, direction.West)
+        west_area = Area('West Area')
+        self.main_area.setAdjacent(west_area, direction.West)
 
-        self.assertEqual(self.west_area.getAdjacent(direction.East), self.main_area)
+        self.assertEqual(west_area.getAdjacent(direction.East), self.main_area)
 
 class Area_add_item(TestCase):
 
     def test_adds_item(self):
-        self.area = Area('area')
-        self.item = Takeable('object')
+        area = Area('area')
+        item = Takeable('object')
 
-        self.area.items.append(self.item)
+        area.items.append(item)
 
-        self.assertTrue(self.area.items.__len__() == 1)
-        self.assertEqual(self.area.items[0], self.item)
+        self.assertTrue(area.items.__len__() == 1)
+        self.assertEqual(area.items[0], item)
