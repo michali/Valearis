@@ -1,5 +1,3 @@
-import Directions
-
 class Area:
 
     def __init__(self, name, short_description = None, long_description = None):
@@ -9,8 +7,8 @@ class Area:
         self.__name = name
         self.__short_description = short_description
         self.__long_description = long_description
-        self.__adjacents = {}
-        self.__items = []
+        self.__adjacents = set()
+        self.__items = set()
 
     @property
     def name(self):
@@ -24,13 +22,14 @@ class Area:
     def longDescription(self):
         return self.__long_description
 
-    def setAdjacent(self, area, dir):
-        self.__adjacents[dir] = area
-        area.__adjacents[Directions.get_opposite_direction(dir)] = self
-
-    def getAdjacent(self, direction):
-        return self.__adjacents[direction]
-
     @property
     def items(self):
         return self.__items
+
+    def addAdjacent(self, adjacent_area):
+        self.__adjacents.add(adjacent_area)
+        adjacent_area.__adjacents.add(self)
+
+    @property
+    def adjacents(self):
+        return self.__adjacents
