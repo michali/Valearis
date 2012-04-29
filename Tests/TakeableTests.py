@@ -12,3 +12,4 @@ class Takeable_Name(TestCase):
         t = Takeable(None, "Desc")
 
         self.assertEqual(t.description, "Desc")
+
