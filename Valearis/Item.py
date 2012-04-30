@@ -11,8 +11,3 @@ class Item:
     @property
     def description(self):
         return self.__description
-
-class Takeable(Item):
-
-    def __init__(self, name, description = None):
-        Item.__init__(self, name, description)

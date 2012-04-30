@@ -1,8 +1,11 @@
 class Area:
 
-    def __init__(self, name, short_description = None, long_description = None):
+    def __init__(self, name, short_description, long_description = None):
         if (name == None):
             raise ValueError("name should be given")
+
+        if (short_description == None):
+            raise ValueError("short_description should be given")
 
         self.__name = name
         self.__short_description = short_description
